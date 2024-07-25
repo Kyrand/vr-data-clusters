@@ -1,0 +1,25 @@
+<a-entity class="data-cluster-wrapper"
+          geometry="primitive: box;"
+          material="visible:false"
+          grabbable="true"
+          position="{{position}}"
+          scale="{{scale}}"
+          data-loader="dataset: {{key}}"
+>
+  <a-entity class="data-cluster" rotation="0 0 0" axis=""
+            data-cluster="
+                   animate: {{animate}};
+                   dataset: {{key}};
+                   colorField: {{colorfield}};
+                   xField: {{xfield}};
+                   yField: {{yfield}};
+                   zField: {{zfield}};
+                   groupField: {{groupfield}}"
+            data-injector
+  >
+    <a-entity class="labels">
+      <a-entity class="axes-labels"></a-entity>
+      <a-entity class="group-labels"></a-entity>
+    </a-entity>
+  </a-entity>
+</a-entity>

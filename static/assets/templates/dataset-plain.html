@@ -1,0 +1,29 @@
+<a-entity
+	class="dataset"
+	dataset="key: {{key}}"
+	position="{{position}}"
+	geometry="primitive: box;"
+	material="visible:false"
+	scale="{{scale}}"
+	grabbable
+	aabb-collider="objects: .data-crucible; collideNonVisible: true"
+>
+	<a-box
+		geometry="primitive: box;"
+		class="dataset-box"
+		src="/assets/textures/waves-1280.png"
+		rotation="0 0 45"
+	>
+		<a-animation attribute="rotation" dur="3000" to="0 360 45" repeat="indefinite" easing="linear">
+		</a-animation>
+	</a-box>
+	<a-entity
+		position="0 1 0"
+		text="
+              font: mozillavr;
+              align: center;
+              width: 4.0;
+              value: {{label}}"
+	>
+	</a-entity>
+</a-entity>

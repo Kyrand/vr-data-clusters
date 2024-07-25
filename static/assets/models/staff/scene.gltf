@@ -1,0 +1,269 @@
+{
+	"accessors": [
+		{
+			"bufferView": 2,
+			"componentType": 5126,
+			"count": 24,
+			"max": [0.046849999576807022, 0.07201000303030014, 0.046849999576807022],
+			"min": [-0.046849999576807022, -0.067879997193813324, -0.046849999576807022],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 2,
+			"byteOffset": 288,
+			"componentType": 5126,
+			"count": 24,
+			"max": [0.66451174020767212, 0.34183087944984436, 0.66451174020767212],
+			"min": [-0.66451174020767212, -0.56159079074859619, -0.66451174020767212],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 3,
+			"componentType": 5126,
+			"count": 24,
+			"max": [0.7071068286895752, 1.3721342284611637e-8, 0.7071068286895752, 1],
+			"min": [-0.7071068286895752, -1.3327761116954662e-8, -0.7071068286895752, 1],
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 1,
+			"componentType": 5126,
+			"count": 24,
+			"max": [0.92333000898361206, 0.73357999324798584],
+			"min": [0.11897999793291092, 0.36926999688148499],
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 0,
+			"componentType": 5125,
+			"count": 24,
+			"max": [23],
+			"min": [0],
+			"type": "SCALAR"
+		},
+		{
+			"bufferView": 2,
+			"byteOffset": 576,
+			"componentType": 5126,
+			"count": 398,
+			"max": [0.14933000504970551, 0.55352997779846191, 0.033319998532533646],
+			"min": [-0.14933000504970551, -1.3938000202178955, -0.033319998532533646],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 2,
+			"byteOffset": 5352,
+			"componentType": 5126,
+			"count": 398,
+			"max": [0.99999278783798218, 1, 0.9999968409538269],
+			"min": [-0.99999278783798218, -1, -0.9999968409538269],
+			"type": "VEC3"
+		},
+		{
+			"bufferView": 3,
+			"byteOffset": 384,
+			"componentType": 5126,
+			"count": 398,
+			"max": [1, 0.99537479877471924, 0.99999898672103882, 1],
+			"min": [-0.30422571301460266, -0.99537515640258789, -0.99999892711639404, -1],
+			"type": "VEC4"
+		},
+		{
+			"bufferView": 1,
+			"byteOffset": 192,
+			"componentType": 5126,
+			"count": 398,
+			"max": [0.70152997970581055, 0.9963499903678894],
+			"min": [0, 0],
+			"type": "VEC2"
+		},
+		{
+			"bufferView": 0,
+			"byteOffset": 96,
+			"componentType": 5125,
+			"count": 1632,
+			"max": [397],
+			"min": [0],
+			"type": "SCALAR"
+		}
+	],
+	"asset": {
+		"extras": {
+			"author": "khachiun (https://sketchfab.com/khachiun)",
+			"license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+			"source": "https://sketchfab.com/models/5f68edbd81e44b6dad8a938fab6e03ad",
+			"title": "Wizards staff"
+		},
+		"generator": "Sketchfab-3.29.3",
+		"version": "2.0"
+	},
+	"bufferViews": [
+		{
+			"buffer": 0,
+			"byteLength": 6624,
+			"byteOffset": 0,
+			"name": "floatBufferViews",
+			"target": 34963
+		},
+		{
+			"buffer": 0,
+			"byteLength": 3376,
+			"byteOffset": 6624,
+			"byteStride": 8,
+			"name": "floatBufferViews",
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 10128,
+			"byteOffset": 10000,
+			"byteStride": 12,
+			"name": "floatBufferViews",
+			"target": 34962
+		},
+		{
+			"buffer": 0,
+			"byteLength": 6752,
+			"byteOffset": 20128,
+			"byteStride": 16,
+			"name": "floatBufferViews",
+			"target": 34962
+		}
+	],
+	"buffers": [
+		{
+			"byteLength": 26880,
+			"uri": "scene.bin"
+		}
+	],
+	"images": [
+		{
+			"uri": "/assets/textures/Staff_materiale_baseColor.png"
+		},
+		{
+			"uri": "/assets/textures/Crystal_material_baseColor.png"
+		}
+	],
+	"materials": [
+		{
+			"doubleSided": true,
+			"emissiveFactor": [0, 0, 0],
+			"name": "Staff_materiale",
+			"pbrMetallicRoughness": {
+				"baseColorFactor": [1, 1, 1, 1],
+				"baseColorTexture": {
+					"index": 0,
+					"texCoord": 0
+				},
+				"metallicFactor": 0,
+				"roughnessFactor": 0.59999999999999998
+			}
+		},
+		{
+			"alphaMode": "BLEND",
+			"doubleSided": true,
+			"emissiveFactor": [0, 0.3491728301, 0.98996368810000002],
+			"name": "Crystal_material",
+			"pbrMetallicRoughness": {
+				"baseColorFactor": [1, 1, 1, 0.88],
+				"baseColorTexture": {
+					"index": 1,
+					"texCoord": 0
+				},
+				"metallicFactor": 0,
+				"roughnessFactor": 0.59999999999999998
+			}
+		}
+	],
+	"meshes": [
+		{
+			"name": "Crystal",
+			"primitives": [
+				{
+					"attributes": {
+						"NORMAL": 1,
+						"POSITION": 0,
+						"TANGENT": 2,
+						"TEXCOORD_0": 3
+					},
+					"indices": 4,
+					"material": 1,
+					"mode": 4
+				}
+			]
+		},
+		{
+			"name": "staff",
+			"primitives": [
+				{
+					"attributes": {
+						"NORMAL": 6,
+						"POSITION": 5,
+						"TANGENT": 7,
+						"TEXCOORD_0": 8
+					},
+					"indices": 9,
+					"material": 0,
+					"mode": 4
+				}
+			]
+		}
+	],
+	"nodes": [
+		{
+			"children": [1],
+			"name": "RootNode (gltf orientation matrix)",
+			"rotation": [-0.70710678118654746, -0, -0, 0.70710678118654757]
+		},
+		{
+			"children": [2],
+			"name": "RootNode (model correction matrix)"
+		},
+		{
+			"children": [3, 5],
+			"name": "Root"
+		},
+		{
+			"children": [4],
+			"matrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.31670000000000004, 0, 1],
+			"name": "Crystal"
+		},
+		{
+			"mesh": 0,
+			"name": "Crystal"
+		},
+		{
+			"children": [6],
+			"name": "staff"
+		},
+		{
+			"mesh": 1,
+			"name": "staff"
+		}
+	],
+	"samplers": [
+		{
+			"magFilter": 9729,
+			"minFilter": 9987,
+			"wrapS": 10497,
+			"wrapT": 10497
+		}
+	],
+	"scene": 0,
+	"scenes": [
+		{
+			"name": "OSG_Scene",
+			"nodes": [0]
+		}
+	],
+	"/assets/textures": [
+		{
+			"sampler": 0,
+			"source": 0
+		},
+		{
+			"sampler": 0,
+			"source": 1
+		}
+	]
+}

@@ -1,0 +1,37 @@
+<a-entity
+  class="dataset"
+  dataset="key: {{key}}"
+  position="{{position}}"
+  scale="{{scale}}"
+  geometry="primitive: box;"
+  material="visible: false"
+  grabbable
+  shadow
+  aabb-collider="objects: .data-crucible; collideNonVisible: true"
+  dynamic-body
+>
+  <a-entity
+    gltf-model="#titanic"
+    class="dataset-box"
+    scale="0.04 0.04 0.04"
+    rotation="0 0 0"
+    position="0.268 0 0"
+  >
+    <a-animation
+      attribute="rotation"
+      dur="3000"
+      to="0 360 0"
+      repeat="indefinite"
+      easing="linear"
+    >
+    </a-animation>
+  </a-entity>
+  <a-entity
+    position="0 -0.15 0"
+    text="
+              font: mozillavr;
+              align: center;
+              width: 4.0;
+              value: {{label}}">
+  </a-entity>
+</a-entity>
