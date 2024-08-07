@@ -22,7 +22,7 @@ AFRAME.registerComponent('data-cluster', {
 		geoScale: { type: 'number', default: 0.005 },
 		cloudType: { type: 'string', default: consts.CLOUD_TYPES.Cloud },
 		jitterFactor: { type: 'number', default: 0.05 },
-		sphereRadius: { type: 'number', default: cfg.sphere.radius },
+		markerWidth: { type: 'number', default: cfg.marker.width },
 		padding: { type: 'number', default: cfg.cluster.padding },
 		colorFieldScheme: {
 			type: 'string',

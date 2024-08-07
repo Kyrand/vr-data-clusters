@@ -8,7 +8,7 @@ export default (S) => {
 	let scaleV3 = (v, scale) => {
 		return { x: v.x * scale, y: v.y * scale, z: v.z * scale }
 	}
-	const hexmap = renderHexJSON(hexData, 1.2, 1.2)
+	const hexmap = renderHexJSON(hexData, 1, 1)
 
 	return {
 		update() {

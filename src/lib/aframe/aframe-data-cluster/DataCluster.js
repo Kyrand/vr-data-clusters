@@ -21,7 +21,10 @@ import * as vertexShader from '../shaders/boxedVert.vert'
 import RadialCluster from './clusters/RadialCluster'
 
 const vShader = `precision highp float;
-		uniform mat4 modelViewMatrix; uniform mat4 projectionMatrix; uniform float progress;
+		uniform mat4 modelViewMatrix;
+		uniform mat4 projectionMatrix;
+		uniform float progress;
+		uniform float scale;
 
 		attribute vec3 position;
 		attribute vec2 uv;
@@ -42,7 +45,7 @@ const vShader = `precision highp float;
 			//float scale =  sin( trTime.x * 2.1 ) + sin( trTime.y * 3.2 ) + sin( trTime.z * 4.3 );
 			//vScale = scale;
 			//scale = scale * 10.0 + 10.0;
-			mvPosition.xyz += position;
+			mvPosition.xyz += position * scale;
 			vUv = uv;
 			vColor = color;
 			gl_Position = projectionMatrix * mvPosition;
@@ -119,7 +122,7 @@ export default (el, AFData, AFRAME) => {
 		})
 		// SHADER VARIABLES
 		//const sphereGeometry = new THREE.SphereGeometry(cfg.sphere.radius)
-		const sphereGeometry = new THREE.CircleGeometry(AFData.sphereRadius)
+		const sphereGeometry = new THREE.CircleGeometry(AFData.markerWidth / 2)
 		geometry = new THREE.InstancedBufferGeometry()
 		//geometry.copy(new THREE.SphereGeometry(cfg.sphere.radius))
 		//geometry.instanceCount = count
@@ -143,6 +146,7 @@ export default (el, AFData, AFRAME) => {
 		material = new THREE.RawShaderMaterial({
 			uniforms: {
 				progress: { value: 0 },
+				scale: { value: 1 },
 				map: { value: new THREE.TextureLoader().load('/assets/textures/sprites/circle.png') }
 			},
 			vertexShader: vShader,
@@ -154,6 +158,15 @@ export default (el, AFData, AFRAME) => {
 		})
 
 		let mesh = new THREE.Mesh(geometry, material)
+
+		S.setMarkerScale = (scale) => {
+			if (scale) {
+				mesh.material.uniforms.scale.value = scale
+				//mesh.scale.set(scale, scale, scale)
+			} else {
+				//mesh.scale(AFData.sphereRadius, AFData.sphereRadius, AFData.sphereRadius)
+			}
+		}
 
 		particles = model = mesh
 		el.setObject3D('mesh', mesh)
@@ -177,10 +190,14 @@ export default (el, AFData, AFRAME) => {
 		}
 		cluster = clusters['Cloud']
 
+		//mesh.scale.set(0.1, 0.1, 0.1)
+		//S.setSphereScale(0.5)
+
 		onChange()
 	}
 
 	function onChange() {
+		S.setMarkerScale(1)
 		S.axesScales = getAxesScales2({ ...S.AFData, data: S.data, fieldData: S.fieldData })
 		S.textLabels.set([])
 		arrangeCluster()

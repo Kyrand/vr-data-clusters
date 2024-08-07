@@ -38,8 +38,8 @@ export default {
 		height: 0.1,
 		depth: 0.1
 	},
-	sphere: {
-		radius: 0.015,
+	marker: {
+		width: 0.03,
 		padding: 0.001
 	},
 	defaultGeom: 'sphere',
@@ -69,7 +69,7 @@ export default {
 				geoScale: 0.005,
 				colorField: 'sex',
 				colorFieldScheme: 'schemeAccent',
-				cloudType: consts.CLOUD_TYPES.XYZ,
+				cloudType: consts.CLOUD_TYPES.Bar,
 				animate: 'true',
 				jitterFactor: 0.1
 			}
@@ -103,7 +103,7 @@ export default {
 					},
 					default: '#ccc'
 				},
-				cloudType: consts.CLOUD_TYPES.XYZ,
+				cloudType: consts.CLOUD_TYPES.Bar,
 				animate: 'true',
 				jitterFactor: 0.1
 			},

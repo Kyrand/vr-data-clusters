@@ -1,23 +1,27 @@
 import * as d3 from 'd3'
 import geoms from '../../CloudGeoms'
 import { makeTextSprite, makeText } from '../../aframe-utils/labels'
+import { takeRight } from 'lodash'
 
 export default (S) => {
 	let AFData, data, axesScales, fieldData, fields
-	const { el, fromArray, toArray, textLabels } = S
-	let nestedData,
-		groups,
+	const { el, fromArray, toArray, textLabels, setMarkerScale } = S
+	let groups,
 		groupDetails = {}
 
 	function groupByField(field) {
-		nestedData = d3.groups(data, (d) => d[field])
+		let nestedData = d3.groups(data, (d) => d[field])
 
-		groups = nestedData.map((d) => d[0])
 		nestedData.forEach((g) => (groupDetails[g[0]] = {}))
-		nestedData = nestedData.map((d) => ({
-			key: d[0],
-			values: d[1].sort((a, b) => d3.ascending(a[AFData.colorField], b[AFData.colorField]))
-		}))
+		nestedData = nestedData
+			.map((d) => ({
+				key: d[0],
+				values: d[1].sort((a, b) => d3.ascending(a[AFData.colorField], b[AFData.colorField]))
+			}))
+			.sort((a, b) => b.values.length - a.values.length)
+		groups = nestedData.map((d) => d.key)
+
+		return nestedData
 	}
 
 	function label() {
@@ -33,18 +37,30 @@ export default (S) => {
 		textLabels.set(text)
 	}
 
+	function calcMarkerWidth(scale, maxPts, H = 1) {
+		const w = scale.bandwidth()
+		const ratio = H / w
+
+		let n = 1
+		while (maxPts > n * n * ratio) n++
+		return w / n
+	}
+
 	return {
 		update() {
 			;({ AFData, data, axesScales, fieldData, fields } = S)
 
-			groupByField(AFData.groupField)
+			const nestedData = groupByField(AFData.groupField)
+			//setSphereScale(0.5)
 			let scale = d3
 				.scaleBand()
 				.domain(groups)
 				.range([-AFData.dimensions.x / 2, AFData.dimensions.x / 2])
 				.padding(0.1)
 
-			let gap = AFData.sphereRadius * 2
+			//let gap = AFData.sphereRadius * 2
+			const gap = calcMarkerWidth(scale, nestedData[0].values.length)
+			setMarkerScale(gap / AFData.markerWidth)
 			//let points = {}
 			let idToPoints = {}
 			nestedData.forEach((d) => {

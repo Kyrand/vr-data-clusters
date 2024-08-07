@@ -13,7 +13,7 @@ export default (S) => {
 		update() {
 			//const c = d3.select(el).select('.globe').components['globe']
 			;({ AFData, data, axesScales, fieldData, fields } = S)
-			const sd = AFData.sphereRadius * 2
+			const sd = AFData.markerWidth
 			//const r = 0.611216345
 			const R = 0.015 / Math.sin(Math.PI / 128)
 			const dTheta = Math.PI / 64
