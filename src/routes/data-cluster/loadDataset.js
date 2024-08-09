@@ -16,7 +16,7 @@ export async function loadDataset(key, userConfig = {}) {
 		// preliminary data processing
 		//AFRAME.scenes[0].emit("setChartData", this.processData(data))
 		let datum = data[0]
-		let fields = getValidFields(datum, config.ignoreFields)
+		let fields = getValidFields(datum, config.showFields, config.ignoreFields)
 		let fieldData = {}
 		fields.forEach((field) => {
 			fieldData[field] = processField(field, data, config.fields[field])
@@ -67,7 +67,10 @@ export async function loadDataset(key, userConfig = {}) {
 	})
 }
 
-function getValidFields(datum, ignoreFields = []) {
+function getValidFields(datum, showFields, ignoreFields = []) {
+	if (showFields) {
+		return showFields
+	}
 	let fields = []
 	for (const [key, value] of Object.entries(datum)) {
 		if (!ignoreFields.includes(key)) {

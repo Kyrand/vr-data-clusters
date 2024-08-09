@@ -74,6 +74,7 @@ export default {
 				jitterFactor: 0.1
 			}
 		},
+		// UK Election 2019
 		ukelections2019: {
 			key: 'ukelections2019',
 			title: 'UK General Election 2019',
@@ -81,6 +82,55 @@ export default {
 				"This visualisation uses data from the UK's 2019 general election</br> showing distribution of seats geographically and in aggregate",
 			img: 'ukelections2019.png',
 			fields: {},
+			showFields: [
+				'Winning party',
+				'Winning votes',
+				'Majority',
+				'Total votes',
+				'Electorate',
+				'Turnout (%)',
+				'Winning party 2017',
+				'Majority 2017',
+				'Turnout (%) 2017'
+			],
+			ignoreFields: ['invalid'],
+			defaults: {
+				xField: 'Winning party',
+				yField: 'Winning party 2017',
+				zField: 'Turnout (%)',
+				groupField: 'Winning party',
+				geoField: null,
+				geoScale: 0.005,
+				colorField: 'Winning party',
+				//colorFieldScheme: 'schemeAccent',
+				colorFieldScheme: {
+					field: 'Winning party',
+					map: {
+						Con: '#1689D9',
+						Lab: '#da2728',
+						LD: '#f8a531',
+						Green: '#6cae30',
+						SNP: '#fbdb32',
+						DUP: '#d26a50'
+					},
+					default: '#ccc'
+				},
+				cloudType: consts.CLOUD_TYPES.Bar,
+				animate: 'true',
+				jitterFactor: 0.1
+			},
+			hexMap: 'ukelections2019',
+			hexKey: 'ONS ID'
+		},
+		// UK Election 2024
+		ukelections2024: {
+			key: 'ukelections2024',
+			title: 'UK General Election 2024',
+			intro:
+				"This visualisation uses data from the UK's 2024 general election</br> showing distribution of seats geographically and in aggregate",
+			img: 'ukelections2019.png',
+			fields: {},
+			showFields: [],
 			ignoreFields: ['invalid'],
 			defaults: {
 				xField: 'elected_mp_party',
@@ -89,7 +139,7 @@ export default {
 				groupField: 'elected_mp_party',
 				geoField: null,
 				geoScale: 0.005,
-				colorField: 'elected_mp_party',
+				colorField: 'Winner',
 				//colorFieldScheme: 'schemeAccent',
 				colorFieldScheme: {
 					field: 'elected_mp_party',
@@ -107,7 +157,8 @@ export default {
 				animate: 'true',
 				jitterFactor: 0.1
 			},
-			hexMap: 'ukelections2019'
+			hexMap: 'ukelections2024',
+			hexKey: 'ONS ID'
 		}
 	},
 	components: {

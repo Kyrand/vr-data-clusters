@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte'
 	// import GUI from 'lil-gui'
 	import SelectCustom from '@components/ui/SelectCustom.svelte'
-	import RangeF from '@components/ui/RangeF.svelte'
+	import Range from '@components/ui/Range.5.svelte'
 	import { createEventDispatcher } from 'svelte'
 
 	const dispatch = createEventDispatcher()
@@ -31,6 +31,10 @@
 		if (input.onChange) return input.onChange
 		else return () => {}
 	}
+
+	$: onChange = (name, value) => {
+		GUIValues[name] = value
+	}
 </script>
 
 <a-entity html={`html:#ui; state: ${state};`} position="0 1.6 -0.5" />
@@ -47,9 +51,9 @@
 				/>
 			{/if}
 			{#if input['type'] === 'range'}
-				<RangeF
+				<Range
 					label={input.label}
-					bind:value={GUIValues[input['name']]}
+					onChange={(value) => onChange(input['name'], value)}
 					max={input.max}
 					min={input.min}
 					step={input.step}
